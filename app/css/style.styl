@@ -1,0 +1,278 @@
+@import 'rupture'
+@import 'jeet'
+@import "variable/_constant.styl"
+@import "variable/_function.styl"
+@import "variable/_ie.styl"
+@import "icon/sprite.css"
+@import "variable/_default.styl"
+@import "variable/_element.styl"
+@import "variable/_fonts.styl"
+
+rupture.scale = 0 480px 768px 992px 1200px
+rupture.scale-names = 'xs' 'sm' 'md' 'lg'
+jeet.gutter = 1
+
+body
+	@extend .type--main
+	font-family $v-font
+	color $main-text-color
+.main-cont
+	center(1200px)
+	position relative
+	width 100%
+	padding  0 10px
+	+above(1200px)
+		width 1200px
+
+section
+	min-height 500px
+webfont('lazer84','lazer84')
+webfont('Akka','Akka')
+webfont('Bubbleboy','Bubbleboy')
+webfont('Magnum','Magnum')
+webfont('Neon','Neon')
+
+.moving-grid 
+	position absolute
+	bottom 0
+	left 0
+	width 100%
+	height 100vh
+	perspective 1000px
+	z-index 1
+	overflow hidden
+:before 
+		content ''
+		position absolute
+		top 8px
+		left:
+		width 100%
+		height 10px
+		box-shadow -2px 0 21px -3px red
+	
+.moving-cont
+	+below(768px)
+		margin-top -20%
+		transform rotateX(60deg) translateY(20%)
+	position relative
+	min-height 600px
+	width 100%
+	height 160%
+	border 2px solid red
+	box-sizing border-box
+	background-color #010a1c
+	transform-origin top 
+	transform rotateX(60deg) translateY(0%)
+	overflow hidden
+.static-lines 
+	display block
+	width 100%
+	height 100%
+.vert 
+	display inline-block
+	height 100%
+	width 2px
+	background-color #82107e
+	margin-left 4.5%
+	box-shadow 0 2px 46px #11659a
+.moving-lines 
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+.horz 
+	+below(768px)
+		margin-top 15%
+	animation liners 16000ms linear  infinite
+	display inline-block
+	width 100%
+	height 6px
+	margin-top 6%
+	background-color #11689c
+	box-shadow 2px 0 21px #115b95
+
+
+@keyframes liners 
+	0%
+		transform translateY(-100vh)
+	
+	100% 
+		transform translateY(-100px)
+	
+.content
+	position relative
+	width 100%
+	height 100vh
+	flex(mid)
+
+.slogan
+	+below(768px)
+		font-size 32px
+		color white
+	font-family 'lazer84'
+	font-size 6vw
+	color white
+	z-index 200 
+	position relative
+	text-shadow: 8px 8px 0 rgba(255,0,180,0.5);
+	/*background: linear-gradient(#000000 0%, #113e87 22%, #10cccc 50%, #000000 51%, #e21ddc 78%, #e21ddc 78%, #ffffff 100%);
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text*/
+.shine
+		position absolute
+		width 5px
+		height 2px
+		background-color #fff
+		border-radius 50%
+		box-shadow 0 0 7px 2px #fff
+		z-index 3
+@keyframes shine
+	0% 
+		transform rotate(0) scale(0)
+		opacity 0
+	50% 
+		transform rotate(360deg) scale(1)
+		opacity 1
+	100% 
+		transform rotate(720deg) scale(0)
+		opacity 0
+	
+.one 
+	top 20%
+	left 0%
+	animation shine 1000ms alternate infinite
+
+.two 
+	top 55%
+	left 20%
+	animation shine 1500ms alternate infinite
+
+.three 
+	top 23%
+	left 41%
+	animation shine 1700ms alternate infinite
+
+.four 
+	top 18%
+	left 86%
+	animation shine 900ms alternate infinite
+
+.five 
+	bottom 14%
+	left 94%
+	animation shine 1300ms alternate infinite
+
+.stop-scrolling
+	height 100%;
+	overflow hidden;
+	
+//section-about
+.section-about
+	//background radial-gradient( #3B0A7C,#0F151E);
+	background #0f001d
+.about
+	padding 5% 10%
+	position relative
+	height 100vh
+.about__logo
+	position absolute
+	width 30%
+	position absolute
+	right 0
+	bottom 0
+.about__title
+	+below(768px)
+		font-size 30px
+		margin-bottom 20px
+	up()
+	color white
+	font-family 'Magnum'
+	font-size 5vw
+	color white
+	text-shadow: 8px 8px 0 rgba(255,0,180,0.5);
+	margin-bottom 4%
+.about__wraper
+	flex(between)
+.about__col
+	+below(768px)
+		width 100%
+	width 48%
+.about__label
+	+below(768px)
+		font-size 16px
+	up()
+	font-size 2vw
+	color white
+	font-family "lazer84" 
+.about__row
+	border-bottom 2px solid #90087d
+	padding 20px 0
+	color white
+	up()
+.inf-row
+	margin-bottom 5%
+
+//section-template
+.section-template
+	//background radial-gradient( #3B0A7C,#0F151E);
+	background #ceccdb
+	flex(mid)
+.template
+	+below(768px)
+		padding 5% 2%
+		width 80%
+		flex(mid)
+		fl()
+		fw()
+	padding 5% 0
+	width 50%
+	position relative
+	height 100vh
+.template__title
+	+below(768px)
+		font-size 30px
+	up()
+	color white
+	font-family 'Magnum'
+	font-size 5vw
+	color #373b65
+	margin-bottom 4%
+	//text-shadow: 8px 8px 0 rgba(255,0,180,0.5);
+.template__img
+	+below(768px)
+		height 50%
+	height 70%
+	width 100%
+	display block 
+	margin-bottom 4%
+.template__img-el
+	tr(all)
+	width 100%
+	height 100%
+	background-size cover
+	background-position center center 
+	box-shadow 0 0px 30px black
+	&:hover
+		transform scale(1.05)
+		cp()
+.template__info
+	+below(768px)
+		flex(around)
+		width 100%
+		margin-top 20px
+	f()
+.template__info-el
+	margin-right 2%
+	.icons
+		+below(768px)
+			size 25
+		fill #373b65
+		size 30
+		tr(all)
+		&:hover
+			transform scale(1.2)
+		
+@import "../module/**/*"
+	

@@ -1,0 +1,57 @@
+include block_html/_style.jade
+include ../module/**/*.jade
+
+.main
+	section
+		.content
+			.slogan#main-slogan
+			.moving-grid
+				.moving-cont
+					.static-lines
+						- for (var i = 0; i < 24; i++)
+							.vert
+					.moving-lines
+						- for (var j = 0; j < 24; j++)
+							.horz
+	section.section-about
+		.about
+			.about__logo
+				img(src="img/logo.jpg", alt="")
+			.about__title information
+			.about__wraper
+				.about__col
+					.inf-row
+						.about__label name
+						.about__row.about__name Anatoly Kuznetcov
+					.inf-row
+						.about__label skils
+						.about__row.about__name html5 css3 js nodejs gulp bower jade stylus
+					.inf-row
+						.about__label Contacts
+						.about__row.about__name kuznecovs45@gmail.com
+	- each val,key in templates
+		section.section-template
+			.template
+				.template__title template ##{key+1}
+				a(href="#{val.link}").template__img
+					.template__img-el(style="background-image:url('img/template-#{key+1}.jpg') ")
+				.template__info
+					a(href="#{val.github}").template__info-el 
+						+icon("github-logo","icons")
+					a(href="#{val.youtube}").template__info-el 
+						+icon("youtube","icons")
+					a(href="#{val.link}").template__info-el 
+						+icon("link-symbol","icons")
+					a(href="#{val.livecoding}").template__info-el 
+						+icon("play-button","icons")
+
+
+
+audio(autoplay='' loop='')#music
+	source(src='play.mp3')
+
+include ./block_html/_script.jade
+
+
+
+
